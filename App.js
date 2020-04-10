@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Resource from './components/Resource'
+import Cliff from './components/Cliff'
 
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
       <div className="App">
         <h1>Welcome To BrainHive</h1>
         <Resource resource={this.resource}/>
+        <Cliff cliff={this.cliff}/>
       </div>
     );
   }
@@ -17,3 +19,4 @@ class App extends Component {
  
 
 export default App;
+ 
