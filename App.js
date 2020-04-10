@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+import Resource from './components/Resource'
+
 
 class App extends Component {
   render(){
     return (
       <div className="App">
         <h1>Welcome To BrainHive</h1>
-        
+        <Resource resource={this.resource}/>
       </div>
     );
   }
