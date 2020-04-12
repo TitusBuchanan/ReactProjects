@@ -20,6 +20,7 @@ const Cliff = () => {
         <div>
             <h1>{cliff.PosterName}</h1>
             <p2>{cliff.title}</p2>
+            <p3>{cliff.resourceType}</p3>
         </div>
 
 
