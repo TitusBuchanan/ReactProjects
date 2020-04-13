@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
         <h1>Welcome To BrainHive</h1>
         <Resource resource={this.resource}/>
-        <Cliff cliff={this.cliff}/>
+        
       </div>
     );
   }
