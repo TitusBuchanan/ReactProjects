@@ -1,22 +1,32 @@
-import React, { Component } from 'react';
-import './App.css';
-import Resource from './components/Resource'
-import Cliff from './components/Cliff'
-
+import React, { Component } from "react";
+import "./App.css";
+import Resource from "./components/Resource";
+import resources from "./mock/resource";
 
 class App extends Component {
-  render(){
+  //[<Resource resource={aResource}/>, <Resource resource={aResource}]
+  // constructor(props) {
+  //   super(props);
+  //   this.renderPosts.bind(this);
+  // }
+  // Resource = require("./components/Resource");
+
+  renderPosts = () => {
+    const display = resources.map((resource) => {
+      return <Resource resource={resource} />;
+    });
+
+    return display;
+  };
+
+  render() {
     return (
       <div className="App">
-        <h1>Welcome To BrainHive</h1>
-        <Resource resource={this.resource}/>
-        
+        <h1>Welcome to BrainHive!</h1>
+        {this.renderPosts()}
       </div>
     );
   }
-  
 }
- 
 
 export default App;
- 

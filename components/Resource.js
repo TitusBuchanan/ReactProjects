@@ -24,6 +24,7 @@ const Resource = () => {
             <p>{resource.datePublished}</p>
             {   resource.videoLength ? (<p>{resource.videoLength}</p>) : null}
             <p>Comments: {resource.comments.length}</p>
+            <p>link:{resource.link}</p>
             
         </div>
     )
