@@ -66,15 +66,22 @@ class App extends Component {
         { user: "Phen", text: "The best to learn React with." },
       ],
     },
-  ] 
+  ];
+
+  renderPosts= ()  => {
+    const display = this.resources.map(resource => {
+      return <Resource resource={resource} />;
+    });
+    
+    return display
+  }
+
 
   render(){
     return (
       <div className="App">
         <h1>Welcome To BrainHive</h1> 
-        <Resource resource={this.resources[0]} />
-        <Resource resource={this.resources[1]}/>
-        <Resource resource={this.resources[2]}/>
+       {this.renderPosts()}
 
       </div>
     );
