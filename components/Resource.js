@@ -10,6 +10,8 @@ const Resource = ({resource}) => {
             {resource.videoLength ? (<p>Length: {resource.videoLength} minutes</p>) : null }
             {/*conditonal ? true code : false code */}
             <p>Comments: {resource.comments.length}</p>
+            <p>{resource.link}</p>
+            <p>{resource.categories}</p>
         </div>
 
     )
