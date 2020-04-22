@@ -57,3 +57,19 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.header {
+  display: flex;
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+
+  background-color: salmon;
+}
+
+.title {
+  font-size: 3rem;
+  font-family: fantasy;
+  font-weight: bold;
+  text-shadow: 1px 10px 20px rgb(41, 38, 33);
+  color: blanchedalmond;
+}
