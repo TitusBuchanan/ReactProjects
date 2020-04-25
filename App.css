@@ -41,14 +41,18 @@
 .box {
   border: 1px solid salmon;
   border-bottom-width: 0;
-  border-radius: 25px;
-  box-shadow: 1px 10px 20px salmon;
+  border-radius: 20px;
+  box-shadow: 5px 3px 5px salmon;
   margin-bottom: 25px;
   max-width: 500px;
   width: 80%;
   padding: 0 8px;
-  background-color: rgb(70, 66, 60);
+  background-color: oldlace;
 
+}
+
+.box:hover{
+  box-shadow: 15px 9px 15px salmon;
 }
 
 .resourceList {
@@ -61,16 +65,27 @@
 
 .header {
   display: flex;
-  padding-left: 2rem;
+  flex-direction: row;
+  padding: 0 2rem;
   margin-bottom: 1.5rem;
 
   background-color: salmon;
 }
 
 .title {
+  display: flex;
+  flex: 3;
   font-size: 3rem;
   font-family: fantasy;
   font-weight: bold;
   text-shadow: 1px 10px 20px rgb(41, 38, 33);
   color: blanchedalmond;
+}
+
+.navigation {
+  display: flex;
+  padding: 0 16px;
+  margin-right: 10vw;
+  justify-content: center;
+  align-items: center;
 }
