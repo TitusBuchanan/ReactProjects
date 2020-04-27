@@ -4,8 +4,8 @@ const Resource = ({resource}) => {
    
     return(
         <div className={'box'}>
-            <h2>{resource.title}</h2>
-            <p>{resource.author}</p>
+            <h2 className={'resourceTitle'}>{resource.title}</h2>
+            <p>{resource.resourceAuthor}</p>
             <p>Published On: {resource.datePublished}</p>
             {resource.videoLength ? (<p>Length: {resource.videoLength} minutes</p>) : null }
             {/*conditonal ? true code : false code */}

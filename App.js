@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Resource from './components/Resource'
+import ResourceList from './components/ResourceList';
 import  resources from './mock/resource'
-
+import Navbar from "./components/Navbar"
 import ResourceForm from './components/ResourceForm'
 
 
@@ -11,30 +11,30 @@ import ResourceForm from './components/ResourceForm'
 
 class App extends Component {
   
+  
   state = {
     resources: [...resources]
   }
 
-  renderPosts= ()  => {
-    const display = this.state.resources.map(resource => {
-      return <Resource resource={resource} key={resource.title} />;
-    });
     
-    return display
+  addResource = (newResource) => {
+    
+    this.setState({
+      resources: [...this.state.resources, newResource]
+    })
   }
+
+  
+
+  
 
 
   render(){
     return (
       <div className="App">
-          <div className="header">
-            <h1 className="title">Welcome To BrainHive!</h1>
-              <div className="navigation">
-                <a href="">Add Resource</a>
-              </div>
-          </div>
-        <div className="resourceList"> {this.renderPosts()}</div>
-        <ResourceForm />
+         <Navbar />
+        <ResourceList resources={this.state.resources}/>
+        <ResourceForm addResource={this.addResource}/>
       </div>
 
 

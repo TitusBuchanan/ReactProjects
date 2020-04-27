@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
+
 class ResourceForm extends Component {
-  state = {
+  state =   {
     posterName: "",
     resourceAuthor: "",
     authorSkillLevel: "",
@@ -16,17 +17,44 @@ class ResourceForm extends Component {
     timeToComplete: "",
     rating: "",
     comments: [],
-  };
+    };
+    
+ 
   handleChange = (e) => {
     this.setState({
       ...this.state,
       [e.target.id]: e.target.value,
     });
   };
+  handleSubmit = (e) => {
+      e.preventDefault();
+      //any data manipulation and validation
+      const newResource = {...this.state}
+      newResource.categories = newResource.categories.split(/\s*,\s*/gm);
+
+      this.props.addResource(newResource)
+        this.setState({
+            posterName: "",
+            resourceAuthor: "",
+            authorSkillLevel: "",
+            cohort: "",
+            title: "",
+            categories: "",
+            summary: "",
+            link: "",
+            resourceType: "",
+            datePublished: "",
+            videoLength: "",
+            timeToComplete: "",
+            rating: "",
+            comments: [],
+        })
+    } 
+
   render() {
     return (
       <div className="ResourceForm">
-        <form style={styles.form}>
+        <form style={styles.form} onSubmit={this.handleSubmit}>
           {/* <label htmlFor="posterName">Your Name: </label> */}
           <input
             style={styles.input}
@@ -44,8 +72,12 @@ class ResourceForm extends Component {
             value={this.state.resourceAuthor}
             onChange={this.handleChange}
           />
-          <div>
-            <select id="authorSkillLevel" value={this.state.authorSkillLevel} onChange={this.handleChange}>
+          
+             <select  
+                id="authorSkillLevel" 
+                value={this.state.authorSkillLevel} 
+                onChange={this.handleChange}
+            >
               <option value="" disabled>
                 Author skill level
               </option>
@@ -53,7 +85,7 @@ class ResourceForm extends Component {
               <option value="Intermediate">Intermediate</option>
               <option value="Advanced">Advanced</option>
             </select>
-          </div>
+          
           <input
             style={styles.input}
             id="cohort"
@@ -126,7 +158,7 @@ class ResourceForm extends Component {
             value={this.state.rating}
             onChange={(e) => this.handleChange(e)}
           />
-          <button type="submit">Submit</button>
+          <button style={styles.button} type="submit">Submit</button>
         </form>
       </div>
     );
@@ -144,6 +176,23 @@ const styles = {
   input: {
     width: "60%",
     height: 32,
+    fontSize: 20,
+    marginBottom: 8,
   },
+  button: {     
+    alignSelf:"center",
+    backgroundColor:"salmon",
+    color:"white",
+    marginLeft: 5,
+    marginRight:5,
+    marginBottom:10,
+    marginTop:5,
+    width:"50%",
+    borderRadius:10,
+    fontSize:16,
+    paddingTop:10,
+    paddingBottom:10
+
+  }
 };
 export default ResourceForm;
