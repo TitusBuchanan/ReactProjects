@@ -21,7 +21,7 @@ class App extends Component {
 
     
   addResource = (newResource) => {
-    
+    newResource.id= this.state.resources[this.state.resources.length-1].id + 1
     this.setState({
       ...this.state,
       resources: [...this.state.resources, newResource]
