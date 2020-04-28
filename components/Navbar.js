@@ -1,11 +1,14 @@
 import React from "react"
+import {Link} from 'react-router-dom'
 
 const Navbar = (props) => {
     return(
         <div className="header">
-            <h1 className="title">Welcome To BrainHive!</h1>
+            <h1 className="title">
+                <Link to="/"> Welcome To BrainHive!</Link> 
+            </h1>
             <div className="navigation">
-                <a href="">Add Resource</a>
+                <Link to="/addResource">Add Resource</Link>
             </div>
         </div>
     )

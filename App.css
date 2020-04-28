@@ -51,6 +51,25 @@
 
 }
 
+.viewBox {
+  border: 1px solid salmon;
+  border-bottom-width: 0;
+  border-radius: 20px;
+  box-shadow: 5px 3px 5px salmon;
+  margin-bottom: 25px;
+  max-width: 500px;
+  width: 80%;
+  padding: 0 8px;
+  background-color: oldlace;
+  
+  
+
+}
+
+.viewBox:hover{
+  box-shadow: 15px 9px 15px salmon;
+}
+
 .box:hover{
   box-shadow: 15px 9px 15px salmon;
 }
