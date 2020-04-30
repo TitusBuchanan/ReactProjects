@@ -68,6 +68,7 @@
 
 .viewBox:hover{
   box-shadow: 15px 9px 15px salmon;
+  border: salmon;
 }
 
 .box:hover{
