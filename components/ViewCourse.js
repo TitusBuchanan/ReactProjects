@@ -1,5 +1,6 @@
 import React from 'react'
 import {useParams} from 'react-router-dom'
+import { Button } from 'react-materialize';
 
 const ViewCourse = (props) => {
     const { course } = props
@@ -19,7 +20,13 @@ const ViewCourse = (props) => {
             <h3>Video Length:{course.videoLength} </h3>
             <h3>Time to Complete: {course.timeToComplete} </h3>
             <h3>Course Rating(5 Stars):{course.rating} </h3>
+            <Button>
+                Submit
+            </Button>
         </div>
+        
+           
+        
             
         
         
