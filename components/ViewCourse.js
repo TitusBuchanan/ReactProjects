@@ -20,9 +20,7 @@ const ViewCourse = (props) => {
             <h3>Video Length:{course.videoLength} </h3>
             <h3>Time to Complete: {course.timeToComplete} </h3>
             <h3>Course Rating(5 Stars):{course.rating} </h3>
-            <Button>
-                Submit
-            </Button>
+            
         </div>
         
            
