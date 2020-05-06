@@ -16,13 +16,22 @@ class  ViewCourse extends Component {
           return course.comments.map(comment => {
             return (
                 <div className='viewbox'>
-                    <h3>{comment.user}</h3>
-                    <h3>{comment.text}</h3>
+                    <h3>User:{comment.user}</h3>
+                    <h3>Comment: {comment.text}</h3>
                 </div>
             )
           });
         };
-    
+       
+        renderStars = (course) => {
+            const rating = course.rating;
+            let stars = "";
+
+            for(let i =0 ; i < rating; i++) {
+                stars += "⭑ ";
+            };
+            return stars
+        }
     
         
 

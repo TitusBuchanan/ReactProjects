@@ -51,7 +51,7 @@ const resources = [
     categories: ["React", "Redux"],
     summary:
       "A good resouce on building a couple react apps with and without redux",
-    link: "www.google.com/search?q=NetNinja%20React",
+    link: "https://www.google.com/search?q=NetNinja%20React",
     resourceType: "Playlist",
     datePublished: "2018-09-10.00:00:00.000z",
     videoLength: null,
@@ -173,7 +173,7 @@ const resources = [
     authorsSkillLevel: "advanced",
     cohort: "8",
     title: "React - The Complete Guide (incl Hooks, React Router, Redux)",
-    category: "React",
+    categories: ["React"],
     summary:
       "Dive in and learn React.js from scratch! Learn Reactjs, Hooks, Redux, React Routing, Animations, Next.js and way more!",
     link: "https://www.udemy.com/course/react-the-complete-guide-incl-redux/",
