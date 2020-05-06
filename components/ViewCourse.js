@@ -11,7 +11,7 @@ class  ViewCourse extends Component {
           showComments: !this.state.showComments,
         });
       };
-
+        //Function that renders whenever the onClick is triggered 
       renderComments = (course) => {
           return course.comments.map(comment => {
             return (
@@ -26,13 +26,33 @@ class  ViewCourse extends Component {
         renderStars = (course) => {
             const rating = course.rating;
             let stars = "";
-
-            for(let i =0 ; i < rating; i++) {
+                //loops how many stars we have in our rating 
+            for(let i = 0 ; i < rating; i++) {
                 stars += "⭑ ";
             };
             return stars
-        }
-    
+        };
+
+
+        renderYoutube = (course) => {
+            if (course.link.indexOf("youtube") >= 0) {
+                const videoIdIndex = course.link.indexOf("?v=");
+                const videoId = course.link.substring(videoIdIndex + 3);
+                console.log(videoId);
+                return(
+                    <iframe
+                    title="video"
+                    width="560"
+                    height="315"
+                    src={`https://www.youtube.com/embed/${videoId}`}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    ></iframe>
+                )
+            };
+        };
+        
         
 
 
@@ -52,15 +72,17 @@ class  ViewCourse extends Component {
                 <h3>Categories: {course.categories} </h3>
                 <h3>Summary: {course.summary} </h3>
                 <h3>Resource Type: {course.resourceType} </h3>
-                <h3>Link: {course.link} </h3>
+                <h3>Link: {this.renderYoutube(course)} </h3>
                 <h3>Date Published: {course.datePublished} </h3>
                 <h3>Video Length:{course.videoLength} </h3>
                 <h3>Time to Complete: {course.timeToComplete} </h3>
-                <h3>Course Rating(5 Stars):{course.rating} </h3>
+                <h3>Course Rating(5 Stars): {this.renderStars(course)} </h3>
                 <Button onClick={this.handleClick}>
                     {this.state.showComments ? "Hide Comments" : "Show Comments"}
                 </Button>
                 {this.state.showComments ? this.renderComments(course): null }
+
+                
                     
                 
             </div>
