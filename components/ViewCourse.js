@@ -40,10 +40,10 @@ class  ViewCourse extends Component {
                 const videoId = course.link.substring(videoIdIndex + 3);
                 console.log(videoId);
                 return(
-                    <iframe
+                    <iframe 
                     title="video"
-                    width="560"
-                    height="315"
+                    width="600"
+                    height="350"
                     src={`https://www.youtube.com/embed/${videoId}`}
                     frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -63,7 +63,7 @@ class  ViewCourse extends Component {
         //const {courseId} = useParams();
         const {courseId} = this.props.match.params;
         return (
-            <div className={'viewBox'}>
+            <div className={'viewBox'} >
                 <h3>Poster Name: {course.posterName} id: {courseId}</h3>
                 <h3>Resource Author: {course.resourceAuthor} </h3>
                 <h3>Author Skill Level: {course.authorSkillLevel} </h3>
@@ -90,9 +90,7 @@ class  ViewCourse extends Component {
     }
 };
 
-                
-            
-            
+
             
                 
             

@@ -114,7 +114,7 @@ const resources = [
     categories: ["MongoDB"],
     summary: "A good resouce on building a couple  apps with MongoDB",
     link:
-      "https://www.youtube.com/watch?v=9OPP_1eAENg&list=PL4cUxeGkcC9jpvoYriLI0bY8DOgWZfi6u",
+      "https://www.youtube.com/watch?v=-56x56UppqQ",
     resourceType: "Video",
     datePublished: "2018-09-10.00:00:00.000z",
     videoLength: null,
@@ -160,7 +160,7 @@ const resources = [
     datePublished: "January 20, 2019",
     videoLength: null,
     timeToComplete: null,
-    rating: 10,
+    rating: 5,
     comments: [
       { user: "David", text: "Explains everything perfectly!" },
       { user: "Joel", text: "The best resource to learn React with." },

@@ -57,14 +57,23 @@
   border-radius: 20px;
   box-shadow: 5px 3px 5px salmon;
   margin-bottom: 25px;
-  max-width: 500px;
+  max-width: 600px;
   width: 80%;
   padding: 0 8px;
   background-color: oldlace;
+  align-items: center;
+  margin-top: 16;
+  margin-bottom: 16;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  
+  
+}
+  
   
   
 
-}
 
 .viewBox:hover{
   box-shadow: 15px 9px 15px salmon;
