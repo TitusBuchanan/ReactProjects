@@ -63,7 +63,11 @@ const myStyles = {
     },
 }
         
-        
+    const mapStateToProps = (state) => {
+        return {
+            item:state.resources
+        }
+    }
 
 
 
