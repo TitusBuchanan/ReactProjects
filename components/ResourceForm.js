@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import Button from '../common/Button'
+import { connect } from 'react-redux';
+import {changeForm, submitForm} from '../actions'
+import Button from '../common/Button';
+
 
 
 class ResourceForm extends Component {
   state =   {
+    id:0,
     posterName: "",
     resourceAuthor: "",
     authorSkillLevel: "",
@@ -22,37 +26,20 @@ class ResourceForm extends Component {
     
  
   handleChange = (e) => {
-    this.setState({
-      ...this.state,
-      [e.target.id]: e.target.value,
-    });
+    this.props.changeForm(e.target.id, e.target.value);
+    
   };
   handleSubmit = (e) => {
       e.preventDefault();
       //any data manipulation and validation
-      const newResource = {...this.state}
-      newResource.categories = newResource.categories.split(/\s*,\s*/gm);
-
-      this.props.addResource(newResource)
-        this.setState({
-            posterName: "",
-            resourceAuthor: "",
-            authorSkillLevel: "",
-            cohort: "",
-            title: "",
-            categories: "",
-            summary: "",
-            link: "",
-            resourceType: "",
-            datePublished: "",
-            videoLength: "",
-            timeToComplete: "",
-            rating: "",
-            comments: [],
-        })
+      
+    
+        this.props.submitForm(this.props.newResource.form)
     } 
 
   render() {
+const {form} = this.props.newResource
+
     return (
       <div className={'viewBox'}>
         <div className="ResourceForm">
@@ -63,7 +50,7 @@ class ResourceForm extends Component {
               id="posterName"
               type="text"
               placeholder="Your Name"
-              value={this.state.posterName}
+              value={form.posterName}
               onChange={this.handleChange}
             />
             <input
@@ -71,13 +58,13 @@ class ResourceForm extends Component {
               id="resourceAuthor"
               type="text"
               placeholder="Resource Author"
-              value={this.state.resourceAuthor}
+              value={form.resourceAuthor}
               onChange={this.handleChange}
             />
             
               <select  
                   id="authorSkillLevel" 
-                  value={this.state.authorSkillLevel} 
+                  value={form.authorSkillLevel} 
                   onChange={this.handleChange}
               >
                 <option value="" disabled>
@@ -93,7 +80,7 @@ class ResourceForm extends Component {
               id="cohort"
               type="text"
               placeholder="Cohort #"
-              value={this.state.cohort}
+              value={form.cohort}
               onChange={this.handleChange}
             />
             <input
@@ -101,7 +88,7 @@ class ResourceForm extends Component {
               id="title"
               type="text"
               placeholder="Resource Title"
-              value={this.state.title}
+              value={form.title}
               onChange={this.handleChange}
             />
             <input
@@ -109,7 +96,7 @@ class ResourceForm extends Component {
               type="text"
               id="categories"
               placeholder="Categories (seperate multiples with commas)"
-              value={this.state.categories}
+              value={form.categories}
               onChange={(e) => this.handleChange(e)}
             />
             <input
@@ -117,7 +104,7 @@ class ResourceForm extends Component {
               type="text"
               id="link"
               placeholder="Resource Link"
-              value={this.state.link}
+              value={form.link}
               onChange={(e) => this.handleChange(e)}
             />
             <input
@@ -125,7 +112,7 @@ class ResourceForm extends Component {
               type="text"
               id="resourceType"
               placeholder="Resource Type"
-              value={this.state.resourceType}
+              value={form.resourceType}
               onChange={(e) => this.handleChange(e)}
             />
             <input
@@ -133,7 +120,7 @@ class ResourceForm extends Component {
               type="date"
               id="datePublished"
               placeholder="Published Date"
-              value={this.state.datePublished}
+              value={form.datePublished}
               onChange={(e) => this.handleChange(e)}
             />
             <input
@@ -141,7 +128,7 @@ class ResourceForm extends Component {
               type="text"
               id="videoLength"
               placeholder="Length of Video (optional)"
-              value={this.state.videoLength}
+              value={form.videoLength}
               onChange={(e) => this.handleChange(e)}
             />
             <input
@@ -149,7 +136,7 @@ class ResourceForm extends Component {
               type="text"
               id="timeToComplete"
               placeholder="Time to complete resource"
-              value={this.state.timeToComplete}
+              value={form.timeToComplete}
               onChange={(e) => this.handleChange(e)}
             />
             <input
@@ -157,7 +144,7 @@ class ResourceForm extends Component {
               type="number"
               id="rating"
               placeholder="1 to 5 rating"
-              value={this.state.rating}
+              value={form.rating}
               onChange={(e) => this.handleChange(e)}
             />
             <Button type="submit">Submit</Button>
@@ -185,8 +172,17 @@ const styles = {
     marginBottom: 8,
     backgroundColor: "white"
   },
+};
+
+const mapStoreToProps = (store) => {
+  return {
+    newResource: store.newResource,
+  } 
+}
 
  
   
-};
-export default ResourceForm;
+export default connect(mapStoreToProps,{
+  changeForm,
+  submitForm,
+})(ResourceForm);

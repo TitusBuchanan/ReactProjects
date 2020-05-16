@@ -12,7 +12,7 @@ class Resource extends Component {
 
      handleCLick = () => {
         const  {resource , onSelect} = this.props;
-        onSelect(resource.id)
+       
         this.setState({
             clicked: true,
         });
@@ -20,7 +20,7 @@ class Resource extends Component {
     
     
     render(){
-        const  {resource } = this.props;
+        const  { resource } = this.props;
     
        
         return(

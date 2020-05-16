@@ -1,16 +1,19 @@
 import React, {Component} from "react";
 import Resource from "./Resource"
+import {connect} from 'react-redux'
+import { increment } from '../actions'
+
 
 
 class ResourceList extends Component {
     state = {
         query:'',
-        searchedResources: [...this.props.resources]
+        searchedResources: [...this.props.resourcesList.list]
     }
     
     handleChange = (e) => {
         const query = e.target.value;
-        const newList = this.props.resources.filter(resource => {
+        const newList = this.props.resourcesList.list.filter(resource => {
             if (resource.title.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
                 return true;
             }
@@ -24,10 +27,14 @@ class ResourceList extends Component {
             searchedResources : newList
         })       
     }
+    handleClick = ()  => {
+        this.props.increment(this.props.count);
+    };
+
      
     renderPosts= ()  => {
         const display = this.state.searchedResources.map(resource => {
-        return <Resource resource={resource} key={resource.id}  onSelect={this.props.onSelect}/>;
+        return <Resource resource={resource} key={resource.id}  />;
         });
         
         return display
@@ -41,6 +48,8 @@ class ResourceList extends Component {
             </div>
             <div className="resourceList"> {this.renderPosts()}</div>
             </div>
+           
+            
         )
     }
             
@@ -63,12 +72,15 @@ const myStyles = {
     },
 }
         
-    const mapStateToProps = (state) => {
-        return {
-            item:state.resources
-        }
+const mapStoreToProps = store => {
+    return {
+        count: store.resources.count,
+        resourcesList: store.resources
     }
+}
+    
 
 
-
-export default ResourceList;
+export default connect(mapStoreToProps, {
+    increment,
+})(ResourceList);

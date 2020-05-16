@@ -1,6 +1,7 @@
 import React,{ Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import Button from '../common/Button'
+import { connect } from 'react-redux'
 
 class  ViewCourse extends Component { 
     state = {
@@ -59,9 +60,11 @@ class  ViewCourse extends Component {
 
     render() {
     
-        const { course } = this.props
+       // const { course } = this.props
         //const {courseId} = useParams();
-        const {courseId} = this.props.match.params;
+        const courseId = parseInt(this.props.match.params.courseId)
+        const course = this.props.resources.list.find( (item) => item.id === courseId)
+        console.log(courseId)
         return (
             <div className={'viewBox'} >
                 <h3>Poster Name: {course.posterName} id: {courseId}</h3>
@@ -90,10 +93,14 @@ class  ViewCourse extends Component {
     }
 };
 
-
+const mapStoreToProps = (store) => {
+    return {
+        resources:store.resources,
+    }
+}
             
                 
             
             
 
-export default withRouter(ViewCourse);
+export default connect(mapStoreToProps)(withRouter(ViewCourse));
