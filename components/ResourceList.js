@@ -30,7 +30,7 @@ class ResourceList extends Component {
             searchedResources : newList
         });
         
-        this.props.changeQuery(query,this.props.resources.list)     
+        this.props.changeQuery(query)     
     }
 
     handleClick = ()  => {

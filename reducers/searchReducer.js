@@ -15,8 +15,7 @@ export default( store = INITIAL_STORE, action) => {
         case CHANGE_QUERY:
             return {
                 ...store,
-                query: action.payload.query,
-                list:action.payload.newList
+                query: action.payload
             }
         default:
             return store
