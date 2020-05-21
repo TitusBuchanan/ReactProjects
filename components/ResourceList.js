@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import Resource from "./Resource"
 import {connect} from 'react-redux'
 import { increment, changeQuery } from '../actions'
@@ -7,60 +7,45 @@ import { increment, changeQuery } from '../actions'
 
 
 
-class ResourceList extends Component {
-    state = {
-        query:'',
-        searchedResources: [...this.props.resourcesList.list]
-    }
+const ResourceList = (props) => {
     
-    handleChange = (e) => {
-        const query = e.target.value;
-        const newList = this.props.resourcesList.list.filter(resource => {
-            if (resource.title.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
-                return true;
-            }
-            if(resource.summary.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
-                return true;
-            }
-            return false;
-        });
-
-        this.setState({
-            query,
-            searchedResources : newList
-        });
+       const handleChange = (e) => {
+            console.log(props)
+            props.changeQuery(e.target.value,props.resourcesList.list)     
+        }
+            
+            
         
-        this.props.changeQuery(query)     
-    }
-
-    handleClick = ()  => {
-        this.props.increment(this.props.count);
-    };
-
-     
-    renderPosts= ()  => {
-        const display = this.state.searchedResources.map(resource => {
-        return <Resource resource={resource} key={resource.id}  />;
-        });
-        
-        return display
-    };
     
-    render() {
+       const handleClick = ()  => {
+            props.increment(props.count);
+        };
+
+        
+      const   renderPosts= ()  => {
+            console.log(props)
+            const display = props.search.searchList.map(resource => {
+            return <Resource resource={resource} key={resource.id}  />;
+            });
+            
+            return display
+        };
+        
+    
         return(
             <div>
             <div style={myStyles.searchBar}>
                 <input style={myStyles.input} 
                 type="text" placeholder="🔍 Search  By Title or Summary" 
-                value={this.props.search.query} 
-                onChange={this.handleChange} />
+                value={props.search.query} 
+                onChange={handleChange} />
             </div>
-            <div className="resourceList"> {this.renderPosts()}</div>
+            <div className="resourceList"> {renderPosts()}</div>
             </div>
            
             
         )
-    }
+    
             
 
 }
