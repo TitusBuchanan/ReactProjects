@@ -2,10 +2,10 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import './App.css';
 import ResourceList from './components/ResourceList';
-
 import Navbar from "./components/Navbar"
 import ResourceForm from './components/ResourceForm'
 import ViewCourse from './components/ViewCourse'
+
 
 
 

@@ -11,6 +11,7 @@ class Resource extends Component {
 
 
      handleCLick = () => {
+      
         const  {resource , onSelect} = this.props;
        
         this.setState({
