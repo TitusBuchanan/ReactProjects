@@ -24,6 +24,7 @@ class  ViewCourse extends Component {
           });
         };
        
+        //added a function that renders stars in our program
         renderStars = (course) => {
             const rating = course.rating;
             let stars = "";
